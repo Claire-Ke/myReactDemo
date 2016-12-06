@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title>PropTypes</title>
+<head>
+  <!-- react.js是核心库 -->
+  <script src="../build/react.js"></script>
+  <!-- react-dom提供与dom相关的功能 -->
+  <script src="../build/react-dom.js"></script>
+  <!-- browser.js将jsx转化为js的功能 -->
+  <script src="../build/browser.min.js"></script>
+</head>
+<body>
+  <ul id="mytest"></ul>
+  <script type="text/babel">
+  // 组件类的PropTypes属性，就是用来验证组件实例的属性是否符合要求
+    var Props = React.createClass({
+      propTypes: {
+        title: React.PropTypes.string.isRequired,
+      },
+
+      render: function() {
+        return <h1> {this.props.title} </h1>;
+      }
+    });
+    // 比较两次 title 结果，均显示，但是，当title值为数字时，会报错
+    var title = 'It is PropTypes';
+    // var title = 123;
+    ReactDOM.render(
+      <Props title={title}/>,document.getElementById('mytest')
+    );
+  </script>
+</body>
+</html>

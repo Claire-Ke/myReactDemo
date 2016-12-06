@@ -10,12 +10,13 @@
   <script src="../build/browser.min.js"></script>
 </head>
 <body>
-  <ul id="mytest"></ul>
-  <!-- 一定要使用ID名么？试试.... yes,只能用getElementById-->
-  <!-- script的type是"text/babel" -->
+  <div id="mytest"></div>
   <script type="text/babel">
-  // ReactDOM.render(template,target);
-  ReactDOM.render(
-    <li>Hello</li>, document.getElementById('mytest') ); </script>
+  var arr = [
+    <li>1</li>,
+    <li>2</li>,
+    <li>3</li>,
+    <li>4</li>];
+  ReactDOM.render(<ul>{arr}</ul>,document.getElementById('mytest')); </script>
 </body>
 </html>

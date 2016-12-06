@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <title>this.state</title>
+  <head>
+    <!-- react.js是核心库 -->
+    <script src="../build/react.js"></script>
+    <!-- react-dom提供与dom相关的功能 -->
+    <script src="../build/react-dom.js"></script>
+    <!-- browser.js将jsx转化为js的功能 -->
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="mytest"></div>
+    <script type="text/babel">
+    var Button = React.createClass({
+      // 初始化touch属性的状态为fasle
+      getInitialState: function() {
+        return {touch: false};
+      },
+      // 点击文字切换，就像按钮一样
+      handleClick: function(event) {
+        this.setState({touch: !this.state.touch});
+      },
+      render: function() {
+        var msg = this.state.touch? 'touched' : 'haven\'t touched';
+        return (
+          <h1 onClick={this.handleClick}>
+          You {msg} this words like a button.
+          </h1>
+        );}
+      });
+      ReactDOM.render(
+        <Button />,document.getElementById('mytest'));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<title>表单</title>
+<head>
+  <!-- react.js是核心库 -->
+  <script src="../build/react.js"></script>
+  <!-- react-dom提供与dom相关的功能 -->
+  <script src="../build/react-dom.js"></script>
+  <!-- browser.js将jsx转化为js的功能 -->
+  <script src="../build/browser.min.js"></script>
+</head>
+<body>
+  <!-- 用户在表单填入的内容，属于用户跟组件的互动，所以不能用 this.props 读取 -->
+  <script type="text/babel">
+  var Input = React.createClass({
+    // 初始化
+    getInitialState: function() {
+      return {value: 'change test!'};
+    },
+    // 改变时触发的事件
+    Change: function(event) {
+      // 使用event.target.value获取用户输入值
+      this.setState({value: event.target.value});
+    },
+    render: function () {
+      // 用this.state.value获取当前显示值
+      var value = this.state.value;
+      return (
+        <div>
+          <input type="text" value={value} onChange={this.Change} />
+          <h1>{value}</h1>
+        </div>);
+      }
+    });
+  ReactDOM.render(<Input/>, document.body);</script>
+</body>
+</html>

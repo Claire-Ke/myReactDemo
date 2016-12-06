@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<title>组件</title>
+<head>
+  <!-- react.js是核心库 -->
+  <script src="../build/react.js"></script>
+  <!-- react-dom提供与dom相关的功能 -->
+  <script src="../build/react-dom.js"></script>
+  <!-- browser.js将jsx转化为js的功能 -->
+  <script src="../build/browser.min.js"></script>
+</head>
+<body>
+  <div id="mytest"></div>
+  <!-- 通过React.createClass方法创建组件类 -->
+  <script type="text/babel">
+  // 组件名字首字母一定要大写，否则会报错
+  var Person = React.createClass({
+    // 每个组件类一定会有一个render方法，用于输出组件
+    render: function() {
+      return <h1>welcome to {this.props.name} world!</h1>;
+    }
+  });
+  ReactDOM.render(<Person name="claire"/>,document.getElementById('mytest')); </script>
+</body>
+</html>

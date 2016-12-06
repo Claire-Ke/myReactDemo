@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>初识</title>
+<title>JSX语法</title>
 <head>
   <!-- react.js是核心库 -->
   <script src="../build/react.js"></script>
@@ -10,12 +10,15 @@
   <script src="../build/browser.min.js"></script>
 </head>
 <body>
-  <ul id="mytest"></ul>
-  <!-- 一定要使用ID名么？试试.... yes,只能用getElementById-->
-  <!-- script的type是"text/babel" -->
+  <div id="mytest"></div>
   <script type="text/babel">
-  // ReactDOM.render(template,target);
+  var weekdays = ['一', '二', '三', '四', '五'];
   ReactDOM.render(
-    <li>Hello</li>, document.getElementById('mytest') ); </script>
+    <ul> {
+      weekdays.map(function (day) {
+        return <li>Good Time!星期{day}</li>
+      })
+      }</ul>, document.getElementById('mytest') );
+  </script>
 </body>
 </html>

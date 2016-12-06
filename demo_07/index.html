@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<title>获取真实的DOM节点</title>
+<head>
+  <!-- react.js是核心库 -->
+  <script src="../build/react.js"></script>
+  <!-- react-dom提供与dom相关的功能 -->
+  <script src="../build/react-dom.js"></script>
+  <!-- browser.js将jsx转化为js的功能 -->
+  <script src="../build/browser.min.js"></script>
+</head>
+<body>
+  <div id="mytest"></div>
+  <script type="text/babel">
+    var Component = React.createClass({
+      // 由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错
+      Click: function() {
+        this.refs.TextInput.focus();
+      },
+      render: function() {
+        return (
+          <div>
+          <input type="text" ref="TextInput" />
+          <input type="button" value="Focus the text input" onClick={this.Click} />
+          </div>
+        );
+      }
+    });
+
+    ReactDOM.render(
+      <Component />,
+      document.getElementById('mytest')
+    );
+    </script>
+</body>
+</html>

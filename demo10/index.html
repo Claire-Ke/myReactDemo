@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="../build/react.js"></script>
-    <script src="../build/react-dom.js"></script>
-    <script src="../build/browser.min.js"></script>
-  </head>
+<title>组件状态处理函数</title>
+<head>
+  <!-- react.js是核心库 -->
+  <script src="../build/react.js"></script>
+  <!-- react-dom提供与dom相关的功能 -->
+  <script src="../build/react-dom.js"></script>
+  <!-- browser.js将jsx转化为js的功能 -->
+  <script src="../build/browser.min.js"></script>
+</head>
   <body>
-    <div id="example"></div>
+    <div id="mytest"></div>
     <script type="text/babel">
-      var Hello = React.createClass({
+      var Opc = React.createClass({
+        // 初始的透明度为1
         getInitialState: function () {
           return {
             opacity: 1.0
           };
         },
-
+        // 进入状态之后调用，定时器
         componentDidMount: function () {
           this.timer = setInterval(function () {
             var opacity = this.state.opacity;
@@ -29,17 +34,18 @@
         },
 
         render: function () {
+        // style={{opacity: this.state.opacity}}，第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象。
           return (
-            <div style={{opacity: this.state.opacity}}>
-              Hello {this.props.name}
-            </div>
+            <h1 style={{opacity: this.state.opacity}}>
+            {this.props.name} say Hello to you
+            </h1>
           );
         }
       });
 
       ReactDOM.render(
-        <Hello name="world"/>,
-        document.getElementById('example')
+        <Opc name="Claire"/>,
+        document.getElementById('mytest')
       );
     </script>
   </body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<title>时间显示</title>
+<head>
+  <!-- react.js是核心库 -->
+  <script src="../build/react.js"></script>
+  <!-- react-dom提供与dom相关的功能 -->
+  <script src="../build/react-dom.js"></script>
+  <!-- browser.js将jsx转化为js的功能 -->
+  <script src="../build/browser.min.js"></script>
+</head>
+<body>
+  <div id="mytest"></div>
+  <script type="text/babel">
+    function tick() {
+      const element = (
+        <div>
+          <h1>what time is it now ？</h1>
+          <h2>It is { new Date().toLocaleTimeString()}.</h2>
+        </div>
+      );
+      ReactDOM.render(
+        element,
+        document.getElementById('mytest')
+      );
+    }
+
+  setInterval(tick, 1000);
+  </script>
+</body>
+</html>

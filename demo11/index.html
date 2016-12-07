@@ -9,9 +9,33 @@
   <script src="../build/browser.min.js"></script>
 </head>
   <body>
-    <div id="example"></div>
+    <div id="mytest"></div>
     <script type="text/babel">
+    function formatName(user) {
+      return user.firstName + ' ' + user.lastName;
+    }
 
+    const user = {
+      firstName: 'claire',
+      lastName: 'ke'
+    };
+
+    function getGreeting(user) {
+      if (user) {
+        return <h1>Hello, {formatName(user)}!</h1>;
+      }
+      return <h1>Hello, Stranger.</h1>;
+    }
+
+    const element = (
+      <h1>Hello,{formatName(user)}!</h1>
+      // <h1>{getGreeting(user)}</h1>
+    );
+
+    ReactDOM.render(
+      element,
+      document.getElementById('mytest')
+    );
     </script>
   </body>
 </html>
